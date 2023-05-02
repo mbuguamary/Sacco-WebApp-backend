@@ -6,6 +6,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
 
 import java.security.Key;
 import java.util.Date;
@@ -13,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
+@Service
 public class JwtService {
     private static final String SECRET_KEY="33743677397A244326462948404D635166546A576E5A7234753778214125442A";
     public String extractUsername(String token) {
@@ -50,6 +52,7 @@ public class JwtService {
 
     private Date extractExpiration(String token) {
         return extractClaim(token,Claims::getExpiration);
+
     }
 
     private Claims extractAllClaims(String token){

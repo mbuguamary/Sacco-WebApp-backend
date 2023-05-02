@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/auth")
+@RequestMapping(path = "/api/v1/auth")
 @RequiredArgsConstructor
 public class AuthenticationController {
     private final AuthenticationService service;
@@ -19,7 +19,7 @@ public class AuthenticationController {
       return ResponseEntity.ok(service.register(request));
     }
     @PostMapping( "/authenticate")
-    public ResponseEntity <AuthenticationResponse> register(
+    public ResponseEntity <AuthenticationResponse> authenticate(
             @RequestBody AuthenticationRequest request
     ){
         return ResponseEntity.ok(service.authenticate(request));
