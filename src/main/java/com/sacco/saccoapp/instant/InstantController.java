@@ -11,6 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping(path="/api/v1/instant")
 public class InstantController {
+    private final InstantService instantService;
     @GetMapping
     public List<Instant> getInstant(){
         return instantService.getInstant();
