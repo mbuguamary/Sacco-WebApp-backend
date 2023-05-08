@@ -14,7 +14,7 @@ public class DividendController {
 
 private final DividendService dividendService;
 
-    @GetMapping
+    @GetMapping(path="/dividends")
     public List<Dividend> getDividends(){
         return dividendService.getDividends();
     }
