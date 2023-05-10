@@ -10,9 +10,10 @@ import java.util.List;
 @RequestMapping(path="api/v1/member")
 @AllArgsConstructor
 public class MemberController {
+    private final MemberService memberService;
     @GetMapping
     public List <Member> getMember(){
-        return memberService.getMember;
+        return memberService.getMember();
     }
     @PostMapping(path="/register")
     public void registerMember(@RequestBody Member member){
