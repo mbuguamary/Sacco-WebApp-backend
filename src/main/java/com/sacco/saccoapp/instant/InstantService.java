@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -15,5 +16,10 @@ public class InstantService {
 
     public void addNewInstant(Instant instant) {
         instantRepository.save(instant);
+    }
+
+
+    public Optional<Instant> getLoanById(String memNo) {
+      return  instantRepository.findByMemNo(memNo);
     }
 }
