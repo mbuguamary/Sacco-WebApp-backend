@@ -3,11 +3,10 @@ package com.sacco.saccoapp.guarantor;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Data;
 
 @Entity
 @Table(name="guarators")
-public class guarantor {
+public class Guarantor {
     @Id
     private Long id;
     private String loan_no;
