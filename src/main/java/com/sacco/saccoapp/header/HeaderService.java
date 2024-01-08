@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class HeaderService {
-    private final HeaderRepository headerRepository
+    private final HeaderRepository headerRepository;
     public List<Header> getHeader() {
      return headerRepository.findAll();
     }

@@ -10,7 +10,7 @@ public class Guarantor {
     @Id
     private Long id;
     private String loan_no;
-    private String member_no;
+    private String member_name;
     private String  cdate;
     private String  lamount;
     private String lpurpose;

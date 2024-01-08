@@ -14,8 +14,11 @@ public class InstantService {
       return instantRepository.findAll();
     }
 
-    public void addNewInstant(Instant instant) {
-        instantRepository.save(instant);
+    public Instant addNewInstant(Instant instant) {
+
+
+        return instantRepository.save(instant);
+
     }
 
 

@@ -16,7 +16,7 @@ public class MemberController {
         return memberService.getMember();
     }
     @PostMapping(path="/register")
-    public void registerMember(@RequestBody Member member){
+    public void registerMember(@RequestBody Member member) {
      memberService.addNewMember(member);
     }
 

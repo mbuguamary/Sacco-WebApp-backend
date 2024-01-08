@@ -1,12 +1,10 @@
 package com.sacco.saccoapp.instant;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.util.Date;
 @Data
@@ -31,7 +29,7 @@ public class Instant {
     private String id_no;
     private String lpurpose;
     private String pymt_terms;
-    private Date cdate;
+    private Date cdate = new Date();
     private Date edate;
     private Double amount;
     private Double period;
@@ -40,4 +38,11 @@ public class Instant {
     private Double premium;
     private String user_name;
     private Date input_date;
+
+    @PrePersist
+    public void init(){
+        this.user_name = SecurityContextHolder.getContext().getAuthentication().getName();
+        this.cdate = new Date();
+        this.input_date = new Date();
+    }
 }
