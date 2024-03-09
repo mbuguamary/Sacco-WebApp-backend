@@ -35,7 +35,7 @@ public class InstantController {
     }
     @PostMapping(path="/register")
     public ResponseEntity<Instant> registerInstant (@RequestBody Instant instant){
-        val loan = instantService.addNewInstant(instant);
+        var loan = instantService.addNewInstant(instant);
         return new ResponseEntity<>(loan, HttpStatus.CREATED);
     }
 
