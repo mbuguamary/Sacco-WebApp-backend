@@ -1,10 +1,7 @@
 package com.sacco.saccoapp.member;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,10 +14,16 @@ import lombok.NoArgsConstructor;
 public class Member {
     @Id
     @GeneratedValue
-    private String acc_no;
-    private String holders_name;
-    private String postal_address;
+    private Long id;
+    @Column(name="acc_no")
+    private String accNo;
+    @Column(name="holders_name")
+    private String holdersName;
+    @Column(name="postal_address")
+    private String postalAddress;
+    @Column(name="id_no")
     private String id_no;
-    private String email_add;
+    @Column(name="email_add")
+    private String emailAdd;
     private String tel1;
 }

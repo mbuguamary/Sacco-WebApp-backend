@@ -12,10 +12,11 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="pb_header")
+@Table(name = "pb_header")
 public class Header {
-   @Id
-   @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String header_name;
     private Date date;
     private String company_logo;

@@ -1,33 +1,41 @@
 package com.sacco.saccoapp.dividend;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
+
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="pb_dividend_qnr")
+@Table(name="ac_dividend_qnr")
 public class Dividend {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String acc_name;
-    private String acc_no;
-    private String user_name;
-    private String pmode;
+    @Column(name="acc_name")
+    private String accName;
+    @Column(name="acc_no")
+    private String accNo;
+    private String description;
+    @Column(name="user_name")
+    private String userName;
+    @Column(name="pmode")
+    private String pMode;
+    private Date date;
+    private Boolean processed;
+    @Column(name="input_date")
+    private Date inputDate;
     private Double amount;
 
-    public Dividend(String acc_name, String acc_no, String user_name, String pmode, Double amount) {
-        this.acc_name = acc_name;
-        this.acc_no = acc_no;
-        this.user_name = user_name;
-        this.pmode = pmode;
-        this.amount = amount;
+    @PrePersist
+    public void init(){
+        this.userName = SecurityContextHolder.getContext().getAuthentication().getName();
+        this.date = new Date();
+        this.inputDate = new Date();
     }
 }

@@ -1,20 +1,18 @@
 package com.sacco.saccoapp.dividend;
 
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RequestMapping(path = "/api/v1/dividend")
 @AllArgsConstructor
+@RestController
 public class DividendController {
 
 private final DividendService dividendService;
 
-    @GetMapping(path="/dividends")
+    @GetMapping
     public List<Dividend> getDividends(){
         return dividendService.getDividends();
     }
