@@ -33,6 +33,7 @@ public class AuthenticationService {
                 .build();
     }
 
+
     public AuthenticationResponse register(RegisterRequest request) {
         var user = User.builder()
                 .mobileNo(request.getMobileNo())
@@ -40,6 +41,7 @@ public class AuthenticationService {
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.USER)
+                .otp(request.getOtp())
                 .build();
         repository.save(user);
         var jwtToken = jwtService.generateToken(user);

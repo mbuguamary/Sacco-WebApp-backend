@@ -1,4 +1,4 @@
-package com.sacco.saccoapp.auth;
+package com.sacco.saccoapp.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,10 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegisterRequest {
-    private String mobileNo;
+public class ChangePasswordRequest {
     private String memberNo;
-    private String email;
     private String password;
-    private Integer otp;
 }

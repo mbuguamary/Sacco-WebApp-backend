@@ -5,9 +5,12 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.Optional;
 
-public interface OtpRepository extends JpaRepository<Otp,Integer> {
+public interface OtpRepository extends JpaRepository<Otp,Long> {
 
     @Query("Select s from Otp s where s.id=?1")
-    Optional<Otp> findById(Integer id);
+    Optional<Otp> findById(Long id);
+
+    @Query("Select s from Otp s where s.memNo=?1 and s.keyUsed=false")
+    Optional<Otp> findByMemNo(String  memNo);
 
 }

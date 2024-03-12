@@ -22,7 +22,7 @@ public class Member {
     @Column(name="postal_address")
     private String postalAddress;
     @Column(name="id_no")
-    private String id_no;
+    private String idNo;
     @Column(name="email_add")
     private String emailAdd;
     private String tel1;
