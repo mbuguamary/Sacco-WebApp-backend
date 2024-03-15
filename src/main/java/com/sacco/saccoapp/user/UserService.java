@@ -31,6 +31,9 @@ public class UserService {
 
             if(!otp.getKeyUsed() && otp.getPassKey().equals(changePasswordRequest.getOtp())){
                 user.setPassword(passwordEncoder.encode(changePasswordRequest.getPassword()));
+
+                 otp.setKeyUsed(true);
+                 otpRepository.save(otp);
                 return userRepository.save(user);
 
             }
